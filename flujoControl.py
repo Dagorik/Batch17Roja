@@ -1,8 +1,8 @@
-x = "ROJO"
+x = "VERDE"
 
 if x == "VERDE":
 	print("CRUZA")
-if x == "AMARILLO":
+elif x == "AMARILLO":
 	print("CORRE")
 else:
 	print("ESPERA")
