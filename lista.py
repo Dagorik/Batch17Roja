@@ -54,7 +54,8 @@ print("INDEX")
 print(frutas.index('naranja',0))
 
 
-for i in frutas:
+for i in len(frutas):
+	print(i)
 	if i == "manzana":
 		print("MANZANA")
 
