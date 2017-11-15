@@ -6,7 +6,7 @@ def mi_peticion_post(nombre,apellidos,bio,edad):
 	URI = "/authors/"
 	URL = URL_BASE + URI
 	json_send = {
-		"name": nombre,
+		"name": nombre,†
 		"last_name": apellidos,
 		"nacionalidad": "MX",
 		"biography": bio,
