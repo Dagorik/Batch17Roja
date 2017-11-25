@@ -1,5 +1,5 @@
-from flask import Flask, jsonify
-from flask import request
+from flask import Flask, jsonify, render_template
+from flask import request, redirect
 import json
 
 app = Flask(__name__)
@@ -21,7 +21,7 @@ tasks = [
 
 @app.errorhandler(404)
 def page_not_found(e):
-	return "ESTA PAGINA NO EXISTE"
+	return redirect('https://www.google.com.mx/')
 
 @app.route('/tareas', methods = ['GET','POST'])
 def index():
@@ -32,19 +32,6 @@ def index():
 		lista_tareas = []
 		lista_tareas.append(body['tareas'])
 		return jsonify({'tareas_realiza':lista_tareas})
-#{'nombre': 'JUAN PEREZ', 'edad': 33, 'tareas': 'TENGO QUE HACER MI TAREA'}
-#http://127.0.0.1:5000/params?params1=HOLA
-#http://localhost:5000/params?params1=Param_number_one&params2=Param_number_two
-@app.route('/params')
-def params():
-	parametro = request.args.get('params1','valor por default')
-	parametro2 = request.args.get('params2','valor por default')
-	return "El parametro es: {}, {}".format(parametro,parametro2)
-
-@app.route('/user/<name>/')
-def user(name):
-	print(type(name))
-	return "Los parametros por path son : {}".format(name)
 
 if __name__ == '__main__':
 	app.run(debug = True, port = 5000)
